@@ -88,16 +88,23 @@ namespace CarraRN
                     }
 
                     var bjgbgb = Path.GetFileName(rawData).Split('.');
-                    long pathID = long.Parse(bjgbgb.First());
-                    int treeID = int.Parse(bjgbgb.Last());
-                    var treeInfo = asset.Metadata.TypeTreeTypes[treeID];
-                    var scriptidx = treeInfo.ScriptTypeIndex;
-                    var typeID = treeInfo.TypeId;
+                    long.TryParse(bjgbgb.First(), out long pathID);
+                    var success = int.TryParse(bjgbgb.Last(), out int treeID);
 
-                    Console.WriteLine($"finding treeidx {treeID} scriptidx {scriptidx} for {pathID}");
-                    var __new = AssetFileInfo.Create(asset, pathID, typeID, scriptidx);
-                    //var __new__basefield = manager.GetBaseField(assetInst, __new); dont rlly need this
-                    __new.SetNewData(File.ReadAllBytes(rawData+".raw_asset"));
+                    AssetFileInfo __new = new();
+
+                    if (success)
+                    {
+                        var treeInfo = asset.Metadata.TypeTreeTypes[treeID];
+                        var scriptidx = treeInfo.ScriptTypeIndex;
+                        var typeID = treeInfo.TypeId;
+
+                        Console.WriteLine($"finding treeidx {treeID} scriptidx {scriptidx} for {pathID}");
+                        __new = AssetFileInfo.Create(asset, pathID, typeID, scriptidx);
+                        //var __new__basefield = manager.GetBaseField(assetInst, __new); dont rlly need this
+                        __new.SetNewData(File.ReadAllBytes(rawData + ".raw_asset"));
+
+                    }
 
                     var overwrite_exist = asset.GetAssetInfo(pathID);
                     if (overwrite_exist != null)
