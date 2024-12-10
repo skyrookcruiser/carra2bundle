@@ -102,7 +102,8 @@ namespace CarraRN
                     var overwrite_exist = asset.GetAssetInfo(pathID);
                     if (overwrite_exist != null)
                     {
-                        __new.SetNewData(File.ReadAllBytes(rawData + ".raw_asset")); 
+                        Console.WriteLine($"overwriting {pathID}");
+                        overwrite_exist.SetNewData(File.ReadAllBytes(rawData + ".raw_asset")); 
                     }
                     else asset.Metadata.AddAssetInfo(__new);
                 }
