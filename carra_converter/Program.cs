@@ -1,11 +1,7 @@
-﻿using System;
-using System.IO;
-using System.IO.Compression;
-using System.Reflection.Metadata;
+﻿using System.IO.Compression;
 using AssetsTools.NET;
 using AssetsTools.NET.Extra;
 using SharpCompress;
-using SharpCompress.Common;
 using SharpCompress.Compressors.Xz;
 
 namespace CarraRN
