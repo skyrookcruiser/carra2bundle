@@ -10,13 +10,13 @@
 
   <ItemGroup>
     <Reference Include="AssetsTools.NET">
-      <HintPath>..\..\..\..\Desktop\funky\AssetsTools.NET.dll</HintPath>
+      <HintPath>AssetsTools.NET.dll</HintPath>
     </Reference>
     <Reference Include="SharpCompress">
-      <HintPath>..\..\..\..\Desktop\funky\SharpCompress.dll</HintPath>
+      <HintPath>SharpCompress.dll</HintPath>
     </Reference>
     <Reference Include="ZstdSharp">
-      <HintPath>..\..\..\..\Desktop\funky\ZstdSharp.dll</HintPath>
+      <HintPath>ZstdSharp.dll</HintPath>
     </Reference>
   </ItemGroup>
 
